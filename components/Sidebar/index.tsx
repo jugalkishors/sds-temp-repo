@@ -15,7 +15,7 @@ import { IconButton, ListItemIcon } from '@mui/material';
 import { useRouter } from 'next/router';
 
 const options = [
-  { title: 'Home', link: '/' },
+  { title: 'Home', link: '#' },
   { title: 'About Us', link: '#about' },
   { title: 'Gallery', link: '#blog' },
   { title: 'Conatct Us', link: '#contactus' },

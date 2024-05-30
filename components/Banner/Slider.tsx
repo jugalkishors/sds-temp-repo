@@ -49,7 +49,7 @@ const SliderComponent: React.FC = () => {
         title={label}
         style={{
           position: 'absolute',
-          bottom: '10px',
+          bottom: '140px',
           left: '50%',
           zIndex: '2',
           transform: 'translateX(-50%)',
@@ -69,12 +69,15 @@ const SliderComponent: React.FC = () => {
       showStatus={false}
       showThumbs={false}
       showIndicators={false}
+      stopOnHover={true}
+      swipeable={false}
       // showArrows={false}
       // thumbWidth={150}
       // useKeyboardArrows={true}
 
-      renderArrowPrev={customRenderArrowPrev}
-      renderArrowNext={customRenderArrowNext}>
+      // renderArrowPrev={customRenderArrowPrev}
+      // renderArrowNext={customRenderArrowNext}
+    >
       <div>
         <section
           className={`${styles.banner} padding-wrapper complete`}

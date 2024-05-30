@@ -36,10 +36,10 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Capital Solutions for Real Estate Sponsors - Pillar Markets</title>
+        <title>SDS ENCLAVE</title>
         <meta
           name="description"
-          content="Learn about recapitalization and other capital solutions serving the liquidity needs of real estate sponsors and their investors."
+          content="SD Singh is a construction company in Jamshedpur ,India that specializes in building commercil and resedential properties such as houses,malls ,offices and hight tech parks."
         />
 
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

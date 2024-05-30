@@ -105,7 +105,7 @@ const ContactUs = () => {
         <div className={styles['cta-content']}>
           <div className={styles['cta-content-part']}>
             <h4>Connect With Us</h4>
-            <p>Speak to a team member to learn more about the Pillar commercial real estate marketplace.</p>
+            <p>Speak to a team member to learn more about Our Offering .</p>
             {/* 
             <div style={{ display: 'flex', alignItems: 'center', marginTop: '30px' }}>
               <EmailIcon />
@@ -145,7 +145,7 @@ const ContactUs = () => {
                       placeholder="Last Name"
                     />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  {/* <Grid item xs={12} sm={6}>
                     <TextField
                       id="company"
                       label="Company"
@@ -156,7 +156,7 @@ const ContactUs = () => {
                       onChange={(event) => handleChange(event, 'company')}
                       placeholder="Company"
                     />
-                  </Grid>
+                  </Grid> */}
                   <Grid item xs={12} sm={6}>
                     <TextField
                       id="email"

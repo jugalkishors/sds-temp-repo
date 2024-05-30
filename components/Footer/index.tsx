@@ -205,7 +205,7 @@ const Footer = () => {
         <div className={styles['footer-bottom']}>
           <div className={styles.container}>
             <p className={styles.copyright}>
-              © 2022 <a href="#">codewithsadee</a>. All Rights Reserved
+              © 2022 <a href="#">Techbridge Innovations</a>. All Rights Reserved
             </p>
           </div>
         </div>
