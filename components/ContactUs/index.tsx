@@ -1,6 +1,7 @@
 'use client';
 import { Grid } from '@mui/material';
 import emailjs from '@emailjs/browser';
+import axios from 'axios';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 // import Toast from 'components/Toast';
@@ -10,6 +11,9 @@ import EmailIcon from '@mui/icons-material/Email';
 import { FormEvent, useEffect, useReducer, useState } from 'react';
 import TextField from './components/TextField';
 import styles from './ContactUs.module.scss';
+
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 
 const theme = createTheme({
   palette: {
@@ -58,45 +62,41 @@ const ContactUs = () => {
   const router = useRouter();
   const [success, setSuccess] = useState(false);
   const [baseUrl, setBaseUrl] = useState('');
+  const [state, setState] = useState({
+    open: false,
+    vertical: 'top',
+    horizontal: 'right',
+  });
+
+  const [submitting, setSubmitting] = useState(false);
+
+  const { open, vertical, horizontal } = state;
   // const salesforceUrl = 'https://webto.salesforce.com/test/test.WebToLead?encoding=UTF-8';
 
-  const [form, setForm] = useReducer(formReducer, initState);
+  const [form, setForm] = useState(initState);
 
   const toggleTost = () => {
     setSuccess((value) => !value);
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>, name: string) => {
-    setForm({
-      name,
-      payload: event.target.value,
-    });
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setForm({ ...form, [name]: value });
   };
 
-  // const handleSubmit = (e: any) => {
-  //   const { first_name, last_name, company, description, email } = form;
-  //   if (!first_name || !last_name || !company || !email) {
-  //     return;
-  //   }
-
-  //   toggleTost();
-  // };
-  const sendEmail = (event: FormEvent) => {
+  const handleCloseSnackbar = () => {
+    setState({ ...state, open: false });
+  };
+  const sendEmail = async (event: FormEvent) => {
     event.preventDefault();
+    setSubmitting(true);
     console.log(form, 'triggering ');
-
-    // emailjs
-    //   .sendForm('service_hbz43go', 'template_r6fv2jc', form, {
-    //     publicKey: 'YOUR_PUBLIC_KEY',
-    //   })
-    //   .then(
-    //     () => {
-    //       console.log('SUCCESS!');
-    //     },
-    //     (error) => {
-    //       console.log('FAILED...', error.text);
-    //     }
-    //   );
+    const res = await axios.post('/api/sendmail', form);
+    if (res.data.success) {
+      setState({ vertical: 'top', horizontal: 'right', open: true });
+      setForm(initState);
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -120,7 +120,7 @@ const ContactUs = () => {
                 <input type="hidden" name="oid" value="00D5f000006OVNu" />
                 <input type="hidden" name="retURL" value={`${baseUrl}?success=true&cta=true`} />​
                 <Grid container spacing={2} columnSpacing={4}>
-                  <Grid item xs={12} sm={6}>
+                  <Grid item xs={12}>
                     <TextField
                       id="first_name"
                       label="First Name"
@@ -128,11 +128,11 @@ const ContactUs = () => {
                       name="first_name"
                       type="text"
                       value={form.first_name}
-                      onChange={(event) => handleChange(event, 'first_name')}
+                      onChange={(event) => handleChange(event)}
                       placeholder="First Name"
                     />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid item xs={12}>
                     <TextField
                       id="last_name"
                       label="Last Name"
@@ -141,7 +141,7 @@ const ContactUs = () => {
                       color="secondary"
                       type="text"
                       value={form.last_name}
-                      onChange={(event) => handleChange(event, 'last_name')}
+                      onChange={(event) => handleChange(event)}
                       placeholder="Last Name"
                     />
                   </Grid>
@@ -157,7 +157,7 @@ const ContactUs = () => {
                       placeholder="Company"
                     />
                   </Grid> */}
-                  <Grid item xs={12} sm={6}>
+                  <Grid item xs={12}>
                     <TextField
                       id="email"
                       label="Email"
@@ -165,18 +165,24 @@ const ContactUs = () => {
                       name="email"
                       type="email"
                       value={form.email}
-                      onChange={(event) => handleChange(event, 'email')}
+                      onChange={(event) => handleChange(event)}
                       placeholder="Email"
                     />
                   </Grid>
                   <Grid item xs={12}>
                     <TextField
-                      color="secondary"
-                      style={{ height: 'auto', color: '#fff' }}
+                      sx={{
+                        '& .MuiInputBase-input': { color: '#fff' }, // Text color for input
+                        '& .MuiInputLabel-root': { color: '#fff' }, // Label color
+                        '& .MuiOutlinedInput-root': {
+                          '& fieldset': { borderColor: '#fff' }, // Border color
+                        },
+                      }}
+                      style={{ height: 'auto', color: '#fff !important' }}
                       id="description"
                       label="Message"
                       value={form.description}
-                      onChange={(event) => handleChange(event, 'description')}
+                      onChange={(event) => handleChange(event)}
                       inputProps={{
                         color: '#fff',
                       }}
@@ -198,9 +204,9 @@ const ContactUs = () => {
                   <Link href="/privacy-and-cookies">privacy policy</Link> and to learn more about offers and
                   promotions from Pillar.
                 </p>
-                <button className="ui-button secondary" type="submit" name="submit">
+                <button className="ui-button secondary" type="submit" name="submit" disabled={submitting}>
                   {' '}
-                  Submit
+                  {submitting ? 'Submiting...' : 'Submit'}
                 </button>
                 {/* <input
                   className="ui-button secondary"
@@ -220,6 +226,15 @@ const ContactUs = () => {
           title="Message sent successfully"
         /> */}
       </section>
+      <Snackbar
+        open={state.open}
+        autoHideDuration={3000}
+        onClose={handleCloseSnackbar}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
+        <Alert severity="success" variant="filled" sx={{ width: '100%' }}>
+          Thank You ! We Have Received Your Details
+        </Alert>
+      </Snackbar>
     </section>
   );
 };
