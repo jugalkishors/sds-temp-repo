@@ -16,8 +16,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     const transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
-        user: 'iamnotpresidentofindia@gmail.com',
-        pass: 'vtaehvwrwclmspai',
+        user: 'sdsenclave.dev@gmail.com',
+        pass: 'bhmdjzuxtbeywnur',
       },
     });
 
@@ -58,8 +58,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       // return `Enter this code to complete the reset${otp}`
     };
     const mailOptions = {
-      from: 'iamnotpresidentofindia@gmail.com',
-      to: 'nithin@yopmail.com',
+      from: 'sdsenclave.dev@gmail.com',
+      to: 'enquiry@sdsenclave.com',
       subject: 'SDS Enclave',
       text: 'Please Find The Use Details',
       html: textContent(req.body.first_name, req.body.last_name, req.body.email, req.body.description),
@@ -68,10 +68,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     try {
       // Send mail
       const info = await transporter.sendMail(mailOptions);
-      console.log('Message sent: %s', info.messageId);
+      // console.log('Message sent: %s', info.messageId);
       res.status(200).json({ success: true, message: 'Email sent successfully' });
     } catch (error) {
-      console.error('Error sending email:', error);
+      // console.error('Error sending email:', error);
       res.status(500).json({ success: false, message: 'Failed to send email' });
     }
   } else {
