@@ -15,6 +15,7 @@ import Blog from 'components/Blog/Blog';
 import Cards from 'components/Cards/Cards';
 import Head from 'next/head';
 import ContactUs from 'components/ContactUs';
+import Quote from 'components/Quote';
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -53,8 +54,10 @@ const Home: NextPage = () => {
         }}>
         <Banner imgSrc="/landingpage/happy-ethnic-family.jpeg" />
 
-        <Pillars />
+        {/* <Pillars /> */}
+
         <Cards />
+        <Quote imgSrc="/quote/quote-banner.jpeg" />
         {/* <Financial /> */}
         <About />
         {/* <PillarSolution /> */}

@@ -1,5 +1,6 @@
 'use client';
 import { Grid } from '@mui/material';
+import Head from 'next/head';
 import emailjs from '@emailjs/browser';
 import axios from 'axios';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -100,52 +101,60 @@ const ContactUs = () => {
   };
 
   return (
-    <section id="contactus">
-      <section className={styles['cta']} style={{ paddingTop: '140px' }}>
-        <div className={styles['cta-content']}>
-          <div className={styles['cta-content-part']}>
-            <h4>Connect With Us</h4>
-            <p>Speak to a team member to learn more about Our Offering .</p>
-            {/* 
+    <>
+      {/* <Head>
+        <title>Contact SDS Enclave - Real Estate in Jamshedpur</title>
+        <meta
+          name="description"
+          content="Get in touch with SDS Enclave for inquiries about our properties in Jamshedpur, Adityapur, and Pardih. Call us or email us today!"
+        />
+      </Head> */}
+      <section id="contactus">
+        <section className={styles['cta']} style={{ paddingTop: '140px' }}>
+          <div className={styles['cta-content']}>
+            <div className={styles['cta-content-part']} style={{ textAlign: 'center' }}>
+              <h4>Contact Us SDS Enclave</h4>
+              <p>Speak to a team member to learn more about Our Offering .</p>
+              {/* 
             <div style={{ display: 'flex', alignItems: 'center', marginTop: '30px' }}>
               <EmailIcon />
               <span style={{ marginLeft: '20px' }}>
                 <a href="mailto:info@pillarmarkets.com">info@pillarmarkets.com</a>
               </span>
             </div> */}
-          </div>
-          <ThemeProvider theme={theme}>
-            <div className={styles['cta-content-part']}>
-              <form onSubmit={sendEmail}>
-                <input type="hidden" name="oid" value="00D5f000006OVNu" />
-                <input type="hidden" name="retURL" value={`${baseUrl}?success=true&cta=true`} />​
-                <Grid container spacing={2} columnSpacing={4}>
-                  <Grid item xs={12}>
-                    <TextField
-                      id="first_name"
-                      label="First Name"
-                      inputProps={{ maxLength: 80 }}
-                      name="first_name"
-                      type="text"
-                      value={form.first_name}
-                      onChange={(event) => handleChange(event)}
-                      placeholder="First Name"
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      id="last_name"
-                      label="Last Name"
-                      inputProps={{ maxLength: 80, color: 'white' }}
-                      name="last_name"
-                      color="secondary"
-                      type="text"
-                      value={form.last_name}
-                      onChange={(event) => handleChange(event)}
-                      placeholder="Last Name"
-                    />
-                  </Grid>
-                  {/* <Grid item xs={12} sm={6}>
+            </div>
+            <ThemeProvider theme={theme}>
+              <div className={styles['cta-content-part']}>
+                <form onSubmit={sendEmail}>
+                  <input type="hidden" name="oid" value="00D5f000006OVNu" />
+                  <input type="hidden" name="retURL" value={`${baseUrl}?success=true&cta=true`} />​
+                  <Grid container spacing={2} columnSpacing={4} className={styles.containerWidth}>
+                    <Grid item xs={12}>
+                      <TextField
+                        id="first_name"
+                        label="First Name"
+                        inputProps={{ maxLength: 80 }}
+                        name="first_name"
+                        type="text"
+                        value={form.first_name}
+                        onChange={(event) => handleChange(event)}
+                        placeholder="First Name"
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        id="last_name"
+                        label="Last Name"
+                        inputProps={{ maxLength: 80, color: 'white' }}
+                        name="last_name"
+                        color="secondary"
+                        type="text"
+                        value={form.last_name}
+                        onChange={(event) => handleChange(event)}
+                        placeholder="Last Name"
+                      />
+                    </Grid>
+                    {/* <Grid item xs={12} sm={6}>
                     <TextField
                       id="company"
                       label="Company"
@@ -157,85 +166,88 @@ const ContactUs = () => {
                       placeholder="Company"
                     />
                   </Grid> */}
-                  <Grid item xs={12}>
-                    <TextField
-                      id="email"
-                      label="Email"
-                      inputProps={{ maxLength: 80 }}
-                      name="email"
-                      type="email"
-                      value={form.email}
-                      onChange={(event) => handleChange(event)}
-                      placeholder="Email"
-                    />
+                    <Grid item xs={12}>
+                      <TextField
+                        id="email"
+                        label="Email"
+                        inputProps={{ maxLength: 80 }}
+                        name="email"
+                        type="email"
+                        value={form.email}
+                        onChange={(event) => handleChange(event)}
+                        placeholder="Email"
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        sx={{
+                          '& .MuiInputBase-input': { color: '#fff' }, // Text color for input
+                          '& .MuiInputLabel-root': { color: '#fff' }, // Label color
+                          '& .MuiOutlinedInput-root': {
+                            '& fieldset': { borderColor: '#fff' }, // Border color
+                          },
+                        }}
+                        style={{ height: 'auto', color: '#fff !important' }}
+                        id="description"
+                        label="Message"
+                        value={form.description}
+                        onChange={(event) => handleChange(event)}
+                        inputProps={{
+                          color: '#fff',
+                        }}
+                        multiline
+                        minRows={2}
+                        maxRows={7}
+                        InputProps={{
+                          required: false,
+                          disableUnderline: true,
+                        }}
+                        name="description"
+                        type="text"
+                        placeholder={'Message'.toUpperCase()}
+                      />
+                    </Grid>
                   </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      sx={{
-                        '& .MuiInputBase-input': { color: '#fff' }, // Text color for input
-                        '& .MuiInputLabel-root': { color: '#fff' }, // Label color
-                        '& .MuiOutlinedInput-root': {
-                          '& fieldset': { borderColor: '#fff' }, // Border color
-                        },
-                      }}
-                      style={{ height: 'auto', color: '#fff !important' }}
-                      id="description"
-                      label="Message"
-                      value={form.description}
-                      onChange={(event) => handleChange(event)}
-                      inputProps={{
-                        color: '#fff',
-                      }}
-                      multiline
-                      minRows={2}
-                      maxRows={7}
-                      InputProps={{
-                        required: false,
-                        disableUnderline: true,
-                      }}
-                      name="description"
-                      type="text"
-                      placeholder={'Message'.toUpperCase()}
-                    />
+                  <Grid item xs={12} className={styles.containerWidth} style={{ paddingLeft: '30px' }}>
+                    <p className={styles['small']}>
+                      By submitting your information, you agree to the{' '}
+                      <Link href="/privacy-and-cookies">privacy policy</Link> and to learn more about offers
+                      and promotions from Pillar.
+                    </p>
+                    <button className="ui-button secondary" type="submit" name="submit" disabled={submitting}>
+                      {' '}
+                      {submitting ? 'Submiting...' : 'Submit'}
+                    </button>
                   </Grid>
-                </Grid>
-                <p className={styles['small']}>
-                  By submitting your information, you agree to the{' '}
-                  <Link href="/privacy-and-cookies">privacy policy</Link> and to learn more about offers and
-                  promotions from Pillar.
-                </p>
-                <button className="ui-button secondary" type="submit" name="submit" disabled={submitting}>
-                  {' '}
-                  {submitting ? 'Submiting...' : 'Submit'}
-                </button>
-                {/* <input
+                  {/* <input
                   className="ui-button secondary"
                   type="submit"
                   name="submit"
                   value={'Submit'}
                   onClick={() => sendEmail()}
                 /> */}
-              </form>
-            </div>
-          </ThemeProvider>
-        </div>
-        {/* <Toast
+                </form>
+              </div>
+            </ThemeProvider>
+          </div>
+          {/* <Toast
           open={success}
           content="Your information has been received. A team member will reach out to you soon."
           //subContent={'A team member will reach out to you soon.'}
           title="Message sent successfully"
         /> */}
+        </section>
+        <Snackbar
+          open={state.open}
+          autoHideDuration={3000}
+          onClose={handleCloseSnackbar}
+          anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
+          <Alert severity="success" variant="filled" sx={{ width: '100%' }}>
+            Thank You ! We Have Received Your Details
+          </Alert>
+        </Snackbar>
       </section>
-      <Snackbar
-        open={state.open}
-        autoHideDuration={3000}
-        onClose={handleCloseSnackbar}
-        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
-        <Alert severity="success" variant="filled" sx={{ width: '100%' }}>
-          Thank You ! We Have Received Your Details
-        </Alert>
-      </Snackbar>
-    </section>
+    </>
   );
 };
 

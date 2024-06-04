@@ -1,4 +1,4 @@
-import { handleMoveToId } from 'utils';
+import { handleMoveToId } from '../../utils';
 import styles from './Banner.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faCoffee } from '@fortawesome/free-solid-svg-icons';
@@ -43,6 +43,17 @@ const Banner: React.FC<Props> = ({ imgSrc }) => {
     //         SEE PLAN & DEALS
     //       </button>
     //     </div>
+    //   </div>
+    //   <div
+    //     style={{
+    //       top: '90vh',
+    //       zIndex: 1,
+    //       position: 'fixed',
+    //       width: '100%',
+    //       left: '92%',
+    //     }}>
+    //     {' '}
+    //     <img src="/whatsapp.png" className={styles.whatsappImage} />
     //   </div>
     // </section>
   );

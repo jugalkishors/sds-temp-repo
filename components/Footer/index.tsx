@@ -6,6 +6,10 @@ import styles from '../RealEstate/RealEstate.module.scss';
 // import styles from './Footer.module.scss';
 import Image from 'next/image';
 
+import FacebookIcon from '@mui/icons-material/Facebook';
+import XIcon from '@mui/icons-material/X';
+import InstagramIcon from '@mui/icons-material/Instagram';
+
 const Footer = () => {
   return (
     <>
@@ -23,7 +27,7 @@ const Footer = () => {
           </div>
         </div>
       </section>
-      <footer className={styles.footer}>
+      <footer className={styles.footer} style={{ marginBottom: '-100px' }}>
         <div className={styles['footer-top']}>
           <div className={styles.container}>
             <div className={styles['footer-brand']}>
@@ -50,6 +54,32 @@ const Footer = () => {
                     {/* <ion-icon name="call-outline" /> */}
                     <span>
                       9334628676 <br /> 8986760030
+                    </span>
+                  </a>
+                </li>
+                <li style={{ display: 'flex', gap: '10px' }}>
+                  <a
+                    href="https://www.facebook.com/share/rRtt7YpfbZLRLJE3/?mibextid=qi2Omg"
+                    className={styles['contact-link']}>
+                    {/* <ion-icon name="call-outline" /> */}
+                    <span>
+                      <FacebookIcon />
+                    </span>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/sdsenclave?igsh=azZwbndic3Y1MXhw"
+                    className={styles['contact-link']}>
+                    {/* <ion-icon name="call-outline" /> */}
+                    <span>
+                      <InstagramIcon />
+                    </span>
+                  </a>
+                  <a
+                    href="https://x.com/SDSEnclave?t=_8G3cQBP1WsQ7euMWQqsog&s=09"
+                    className={styles['contact-link']}>
+                    {/* <ion-icon name="call-outline" /> */}
+                    <span>
+                      <XIcon />
                     </span>
                   </a>
                 </li>

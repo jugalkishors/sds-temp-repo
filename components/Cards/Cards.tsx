@@ -4,6 +4,7 @@ import ApartmentIcon from '@mui/icons-material/Apartment';
 import Grid from '@mui/material/Grid';
 
 const Cards = () => {
+  const phoneNumber = '+919334628676';
   const cardData = [
     {
       type: '2 BHK',
@@ -40,6 +41,10 @@ const Cards = () => {
     },
   ];
 
+  const handleDial = () => {
+    window.location.href = `tel:${phoneNumber}`;
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.cards}>
@@ -73,7 +78,9 @@ const Cards = () => {
                 </ul>
                 <div className={styles.price}>₹ {card.price}</div>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                  <button className={styles.enquireBtn}>ENQUIRE NOW!</button>
+                  <button onClick={handleDial} className={styles.enquireBtn}>
+                    ENQUIRE NOW!
+                  </button>
                 </div>
               </div>
             </Grid>

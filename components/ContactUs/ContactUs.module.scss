@@ -1,11 +1,11 @@
 .cta {
-  background-color: #2a5865;
+  background-color: #4b1e1e;
   color: white;
   position: relative;
   overflow: hidden;
   &-content {
-    display: flex;
-    flex-wrap: wrap;
+    // display: flex;
+    // flex-wrap: wrap;
     width: 100%;
     padding: min(80px, 10%);
     justify-content: center;
@@ -45,5 +45,12 @@
         margin: 0;
       }
     }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .containerWidth {
+    width: 50%;
+    margin: 0px auto;
   }
 }

@@ -1,11 +1,18 @@
 'use client';
 import { useState } from 'react';
 import styles from '../RealEstate/RealEstate.module.scss';
+import Head from 'next/head';
+
+// interface AboutProps {
+//   aboutUsContent: string;
+// }
 
 const About = () => {
   // const [count, setCount] = useState(1500);
-  // const [showReadMore, setShowReadMore] = useState(true);
-  let aboutUsContent = `At SDS Enclave, we pride ourselves on offering a unique blend of luxury, comfort, and innovation
+  let aboutUsContent = ` 
+    Welcome to SDS Enclave, your premier destination for luxury apartments and modern flats in Jamshedpur, Adityapur, and Pardih. As leading real estate developers, we pride ourselves on delivering exceptional living spaces that blend comfort, style, and affordability. Our projects are designed to meet the diverse needs of our clients, offering top-notch amenities and strategic locations. Discover the best in real estate with SDS Enclave, where your dream home becomes a reality.
+  `;
+  let aboutUs = `At SDS Enclave, we pride ourselves on offering a unique blend of luxury, comfort, and innovation
             in our residential projects. With years of experience in real estate, startups, and technology,
             our team is dedicated to creating living spaces that exceed expectations and set new standards in
             the industry. Our journey began with a vision to redefine urban living by integrating modern
@@ -30,64 +37,37 @@ const About = () => {
 
   return (
     <>
+      {/* <Head>
+        <title>About SDS Enclave - Leading Real Estate Developers in Jamshedpur</title>
+        <meta
+          name="description"
+          content="Learn about SDS Enclave, a premier real estate developer offering luxurious and affordable flats in Jamshedpur, Adityapur, and Pardih."
+        />
+      </Head> */}
       <section className={styles.about} id="about">
         <div className={styles.container}>
           <figure className={styles['about-banner']}>
-            <img src=".../../realestate/images/about-banner-1.png" alt="House interior" />
+            <img src="/realestate/images/about-banner-1.png" alt="House interior" />
             <img
-              src=".../../realestate/images/about-banner-2.jpg"
+              src="/realestate/images/about-banner-2.jpg"
               alt="House interior"
               className={styles['abs-img']}
             />
           </figure>
 
-          {/* <h2 className={`${styles['h2']} ${styles['section-title']}`}>Experience Excellence in Real Estate</h2> */}
           <div className={styles['about-content']}>
-            <p className={styles['section-subtitle']}>About Us</p>
+            <h1 className={`${styles['h1']} ${styles['section-title']}`}>
+              Experience Excellence in Real Estate with SDS Enclave
+            </h1>
+            {/* <p className={styles['section-subtitle']}>About Us</p> */}
             <div style={{ height: '550px', overflowY: 'scroll' }}>
               <p className={styles['about-text']} style={{ textAlign: 'justify', paddingRight: '10px' }}>
                 {aboutUsContent}
               </p>
+              <p className={styles['about-text']} style={{ textAlign: 'justify', paddingRight: '10px' }}>
+                {aboutUs}
+              </p>
             </div>
-            {/* <h2 className={`${styles['h2']} ${styles['section-title']}`}>
-            The Leading Real Estate Rental Marketplace.
-          </h2>
-          <p className={styles['about-text']}>
-            Over 39,000 people work for us in more than 70 countries all over the This breadth of global
-            coverage, combined with specialist services
-          </p> */}
-            {/* <ul className={styles['about-list']}>
-            <li className={styles['about-item']}>
-              <div className={styles['about-item-icon']}>
-                <ion-icon name="home-outline" />
-              </div>
-              <p className={styles['about-item-text']}>Smart Home Design</p>
-            </li>
-            <li className={styles['about-item']}>
-              <div className={styles['about-item-icon']}>
-                <ion-icon name="leaf-outline" />
-              </div>
-              <p className={styles['about-item-text']}>Beautiful Scene Around</p>
-            </li>
-            <li className={styles['about-item']}>
-              <div className={styles['about-item-icon']}>
-                <ion-icon name="wine-outline" />
-              </div>
-              <p className={styles['about-item-text']}>Exceptional Lifestyle</p>
-            </li>
-            <li className={styles['about-item']}>
-              <div className={styles['about-item-icon']}>
-                <ion-icon name="shield-checkmark-outline" />
-              </div>
-              <p className={styles['about-item-text']}>Complete 24/7 Security</p>
-            </li>
-          </ul> */}
-            {/* <p className={styles.callout}>
-            "Enimad minim veniam quis nostrud exercitation llamco laboris. Lorem ipsum dolor sit amet"
-          </p>
-          <a href="#service" className={styles.btn}>
-            Our Services
-          </a> */}
           </div>
         </div>
       </section>
@@ -102,6 +82,7 @@ const About = () => {
             fontWeight: 500,
             borderRadius: '4px',
             padding: '12px 24px',
+            marginBottom: '40px',
           }}>
           Download Brochere
         </a>

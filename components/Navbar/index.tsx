@@ -7,9 +7,13 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import style from '../RealEstate/RealEstate.module.scss';
-import SearchIcon from '@mui/icons-material/Search';
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+
 // Home  About Us // Gallery  // contact us
+import AddIcCallIcon from '@mui/icons-material/AddIcCall';
+import WhatsappImage from '../../public/whatsapp.png';
+
+import Image from 'next/image';
+
 type Menu = {
   text: string;
   onClick?: () => void;
