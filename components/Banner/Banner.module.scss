@@ -91,7 +91,7 @@
   z-index: 1;
   position: fixed;
   // width: 100px;
-  right: 10%;
+  right: 9%;
   background-color: white;
   border-radius: 10px;
 }
@@ -121,7 +121,7 @@
 @media screen and (min-width: 500px) {
   .callContainer {
     top: 82vh;
-    right: 7%;
+    right: 6%;
   }
   .whatsappContainer {
     top: 90vh;
@@ -129,8 +129,8 @@
   }
 }
 
-@media screen and (min-width: 1500px) {
-  .callContainer {
-    right: 6%;
-  }
-}
+// @media screen and (min-width: 1500px) {
+//   .callContainer {
+//     right: 6%;
+//   }
+// }

@@ -207,17 +207,21 @@ const ContactUs = () => {
                         placeholder={'Message'.toUpperCase()}
                       />
                     </Grid>
-                  </Grid>
-                  <Grid item xs={12} className={styles.containerWidth} style={{ paddingLeft: '30px' }}>
-                    <p className={styles['small']}>
-                      By submitting your information, you agree to the{' '}
-                      <Link href="/privacy-and-cookies">privacy policy</Link> and to learn more about offers
-                      and promotions from Pillar.
-                    </p>
-                    <button className="ui-button secondary" type="submit" name="submit" disabled={submitting}>
-                      {' '}
-                      {submitting ? 'Submiting...' : 'Submit'}
-                    </button>
+                    <Grid item xs={12} className={styles.containerWidth}>
+                      <p className={styles['small']}>
+                        By submitting your information, you agree to the{' '}
+                        <Link href="/privacy-and-cookies">privacy policy</Link> and to learn more about offers
+                        and promotions from Pillar.
+                      </p>
+                      <button
+                        className="ui-button secondary"
+                        type="submit"
+                        name="submit"
+                        disabled={submitting}>
+                        {' '}
+                        {submitting ? 'Submiting...' : 'Submit'}
+                      </button>
+                    </Grid>
                   </Grid>
                   {/* <input
                   className="ui-button secondary"
