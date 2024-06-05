@@ -2,6 +2,7 @@ import { Virtual, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
+import Styles from './Gallery.module.scss';
 const Gallery = () => {
   const GalleryList = [
     '/swiperImages/aer.jpg',
@@ -28,7 +29,15 @@ const Gallery = () => {
     // console.log("🚀 ~ slides ~ el:", el);
     return (
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <img src={`${el}`} width={300} height={150} alt={`Image ${index}`} />
+        <img
+          src={`${el}`}
+          // className=
+          // width={350}
+          // height={200}
+          // style={{ width: '352px', height: '300px' }}
+          className={Styles.sliderImage}
+          alt={`Image ${index}`}
+        />
       </div>
     );
   });
@@ -43,13 +52,13 @@ const Gallery = () => {
         }}>
         Our Gallery
       </h1>
-      <div style={{ backgroundColor: '#4b1e1e', height: '300px' }}>
+      <div style={{ backgroundColor: '#4b1e1e', height: '400px' }}>
         <div
           style={{
             width: '80%',
             margin: '0px auto',
             display: 'flex',
-            height: '300px',
+            height: '400px',
             alignItems: 'center',
           }}>
           <Swiper
@@ -68,7 +77,7 @@ const Gallery = () => {
                 spaceBetween: 30,
               },
               1024: {
-                slidesPerView: 3,
+                slidesPerView: 2,
                 spaceBetween: 40,
               },
             }}

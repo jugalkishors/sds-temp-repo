@@ -65,6 +65,12 @@ const Navbar: React.FC<NavbarProps> = ({
       // path: '/pillar',
     },
     {
+      text: 'News',
+      path: '#blog',
+      // onClick: () => router.push('/career'),
+      // path: '/pillar',
+    },
+    {
       text: 'Contact Us',
       path: '#contactus',
       // onClick: () => router.push('/contact-us'),

@@ -18,6 +18,7 @@ const options = [
   { title: 'Home', link: '#' },
   { title: 'About Us', link: '#about' },
   { title: 'Gallery', link: '#gallery' },
+  { title: 'News', link: '#blog' },
   { title: 'Conatct Us', link: '#contactus' },
 ];
 
