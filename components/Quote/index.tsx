@@ -16,7 +16,7 @@ const Quote: React.FC<Props> = ({ imgSrc }) => {
           "Our real business is not selling property, but helping our clients make the decision that best fits
           them."
         </div>
-        <div className={styles.author}>~~ By Director</div>
+        <div className={styles.author}>~~ Prabhakar Singh</div>
       </div>
     </section>
   );
