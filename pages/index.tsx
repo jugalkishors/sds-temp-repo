@@ -16,6 +16,7 @@ import Cards from 'components/Cards/Cards';
 import Head from 'next/head';
 import ContactUs from 'components/ContactUs';
 import Quote from 'components/Quote';
+import Gallery from 'components/Gallery/Gallery';
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -57,7 +58,9 @@ const Home: NextPage = () => {
         {/* <Pillars /> */}
 
         <Cards />
-        <Quote imgSrc="/quote/quote-banner.jpeg" />
+
+        <Quote imgSrc="/quote/quote-banner.jpg" />
+        <Gallery />
         {/* <Financial /> */}
         <About />
         {/* <PillarSolution /> */}

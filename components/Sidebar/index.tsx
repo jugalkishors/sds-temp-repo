@@ -17,7 +17,7 @@ import { useRouter } from 'next/router';
 const options = [
   { title: 'Home', link: '#' },
   { title: 'About Us', link: '#about' },
-  { title: 'Gallery', link: '#blog' },
+  { title: 'Gallery', link: '#gallery' },
   { title: 'Conatct Us', link: '#contactus' },
 ];
 

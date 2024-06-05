@@ -60,7 +60,7 @@ const Navbar: React.FC<NavbarProps> = ({
     },
     {
       text: 'Gallery',
-      path: '#blog',
+      path: '#gallery',
       // onClick: () => router.push('/career'),
       // path: '/pillar',
     },

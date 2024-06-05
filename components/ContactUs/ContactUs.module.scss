@@ -50,7 +50,8 @@
 
 @media screen and (min-width: 900px) {
   .containerWidth {
-    width: 50%;
+    width: 50% !important;
     margin: 0px auto;
+    padding-left: 30px;
   }
 }
