@@ -49,8 +49,12 @@
 }
 
 @media screen and (min-width: 900px) {
+  .cta-content-part {
+    width: 50%;
+    margin: 0px auto;
+  }
   .containerWidth {
-    width: 50% !important;
+    width: 80% !important;
     margin: 0px auto;
     padding-left: 30px;
   }

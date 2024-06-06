@@ -91,7 +91,7 @@ const ContactUs = () => {
   const sendEmail = async (event: FormEvent) => {
     event.preventDefault();
     setSubmitting(true);
-    console.log(form, 'triggering ');
+
     const res = await axios.post('/api/sendmail', form);
     if (res.data.success) {
       setState({ vertical: 'top', horizontal: 'right', open: true });
@@ -110,7 +110,7 @@ const ContactUs = () => {
         />
       </Head> */}
       <section id="contactus">
-        <section className={styles['cta']} style={{ paddingTop: '140px' }}>
+        <section className={styles['cta']} style={{ paddingTop: '0px', top: '100px' }}>
           <div className={styles['cta-content']}>
             <div className={styles['cta-content-part']} style={{ textAlign: 'center' }}>
               <h4>Contact Us SDS Enclave</h4>
@@ -126,9 +126,9 @@ const ContactUs = () => {
             <ThemeProvider theme={theme}>
               <div className={styles['cta-content-part']}>
                 <form onSubmit={sendEmail}>
-                  <input type="hidden" name="oid" value="00D5f000006OVNu" />
-                  <input type="hidden" name="retURL" value={`${baseUrl}?success=true&cta=true`} />​
-                  <Grid container spacing={2} columnSpacing={4} className={styles.containerWidth}>
+                  {/* <input type="hidden" name="oid" value="00D5f000006OVNu" /> */}
+                  {/* <input type="hidden" name="retURL" value={`${baseUrl}?success=true&cta=true`} />​ */}
+                  <Grid container spacing={2} columnSpacing={4}>
                     <Grid item xs={12}>
                       <TextField
                         id="first_name"

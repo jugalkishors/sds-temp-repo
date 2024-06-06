@@ -84,7 +84,7 @@ const About = () => {
             padding: '12px 24px',
             marginBottom: '40px',
           }}>
-          Download Brochere
+          Download Brochure
         </a>
       </div>
     </>
