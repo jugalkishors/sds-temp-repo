@@ -27,7 +27,7 @@ const Blog = () => {
   ];
   return (
     <section className={styles.blog} id="blog">
-      <div className={styles.container}>
+      <div className={styles.container} style={{ marginTop: '100px' }}>
         <p className={styles['section-subtitle']}>News & Blogs</p>
         <h2 className={`${styles.h2} ${styles['section-title']}`}>Latest News Feeds</h2>
         <ul className={`${styles['blog-list']} ${styles['has-scrollbar']}`}>
